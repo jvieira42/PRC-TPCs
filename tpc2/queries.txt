@@ -1,0 +1,30 @@
+1. Nomes dos compositores (ordem alfabetica)
+
+select ?compositor where { 
+	?obra :compositor ?compositor
+} order by asc(?compositor)
+
+
+2. Titulos das obras do tipo "Marcha de desfile"
+
+select ?titulos where { 
+	?obra :tipo "Marcha de Desfile".
+    ?obra :titulo ?titulos.
+}
+
+
+3. Para cada obra, quantas partituras estão catalogadas
+
+select (COUNT(?part) AS ?partituras) where { 
+	?obra :utiliza ?instrumento.
+    ?instrumento :refere ?part.
+} 
+
+
+4. Quais os titulos das obras com partitura para "bombo"
+
+select ?titulos where { 
+	?obra :utiliza ?instrumento.
+    ?instrumento :designacao "Bombo".
+    ?obra :titulo ?titulos.
+}

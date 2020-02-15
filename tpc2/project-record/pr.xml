@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <keyname>PRC1920_TPC2</keyname>
+        <title>Ontologia para Arquivo Musical</title>
+        <subtitle>Relatório do TPC2</subtitle>
+        <bdate>10 de Fevereiro 2020</bdate>
+        <edate>17 de Fevereiro 2020</edate>
+        <supervisor>
+            <name>José Carlos Ramalho</name>
+            <email>jcr@di.uminho.pt</email>
+            <homepage>http://www.di.uminho.pt/~jcr</homepage>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <identifier>a76516</identifier>
+            <name>João António Cidade Vieira</name>
+            <email>a76516@alunos.uminho.pt</email>
+            <photo path="photo.jpg"/>
+        </member>
+    </workteam>
+    <abstract>
+        <p>
+            Este segundo trabalho de casa tem como objetivo criar uma ontologia em sintaxe <i>turtle</i> de modo a representar
+            um arquivo musical que está armazenada num ficheiro <b>xml</b>, obtido através de <i>download</i> na página do professor.
+            Também foi proposto realizar quatro <i>queries</i> em <b>Sparql</b> sobre essa mesma ontologia. 
+        </p>
+        <p>
+            Sendo assim foi utilizado o programa <i>protégé</i> para criar a ontologia com as classes obra, instrumento e partitura, e respetivos
+            tipos de dados como arranjo, compositor, designacao, path, tipo e titulo. Também foram criadas as relações entre estas entidades,
+            em que uma obra utiliza instrumentos e um instrumento refere uma partitura, assim como as inversas.
+        </p>
+        <p>
+            Tendo a ontologia criada, apenas foi necessário criar uma <i>stylesheet</i> <b>XSLT</b> que processasse o
+            ficheiro <b>xml</b> e escrevesse para um ficheiro chamado <b>out.ttl</b> todas as obras, instrumentos e partituras, 
+            na sintaxe pretendida para a ontologia que é <i>turtle</i>.
+        </p>
+        <p>
+            Após processada a informação, bastou copiar o conteúdo do novo ficheiro <b>out.ttl</b>, 
+            para o ficheiro original da ontologia criada, obtendo assim uma ontologia com todas as obras,
+            instrumentos e partituras no ficheiro <b>arquivo.ttl</b>.
+        </p>
+        <p>
+            Finalmente, foi importada a ontologia para o <b>GraphDB</b> de modo a podermos escrever <i>queries</i> em linguagem 
+            <b>Sparql</b>, com a finalidade de responder às questões sugeridas. A resposta a estas questões estão presentes no
+            ficheiro <i>queries.txt</i>.
+        </p>
+    </abstract>
+    <deliverables>
+        <deliverable path="pr.xml">Project Record XML</deliverable>
+        <deliverable path="pr.xsl">Project Record XSLT</deliverable>
+        <deliverable path="../arquivo-musica-digital.xml">Dataset do Arquivo</deliverable>
+        <deliverable path="../arquivoTTL.xsl">Stylesheet do Arquivo</deliverable>
+        <deliverable path="../arquivo.ttl">Ontologia do Arquivo</deliverable>
+    </deliverables>
+</pr>
