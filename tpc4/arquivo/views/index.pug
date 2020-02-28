@@ -1,0 +1,18 @@
+extends layout
+block content
+    .w3-container      
+        header.w3-card-4.w3-blue-grey
+            h1.w3-center Arquivo Musical
+
+        table.w3-table-all
+            tr
+                th.w3-center ID
+                th.w3-center Título
+                th.w3-center Nº Partituras
+            each o in obras
+                tr
+                    td.w3-center= o.id
+                    td.w3-center
+                        a(href="/obras/"+o.id)= o.tit
+                    td.w3-center= o.nparts
+                    

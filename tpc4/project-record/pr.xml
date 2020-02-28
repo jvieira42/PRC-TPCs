@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <keyname>PRC1920_TPC4</keyname>
+        <title>Servidor do Arquivo Musical</title>
+        <subtitle>Relatório do TPC4</subtitle>
+        <bdate>24 de Fevereiro 2020</bdate>
+        <edate>2 de Março 2020</edate>
+        <supervisor>
+            <name>José Carlos Ramalho</name>
+            <email>jcr@di.uminho.pt</email>
+            <homepage>http://www.di.uminho.pt/~jcr</homepage>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <identifier>a76516</identifier>
+            <name>João António Cidade Vieira</name>
+            <email>a76516@alunos.uminho.pt</email>
+            <photo path="photo.jpg"/>
+        </member>
+    </workteam>
+    <abstract>
+        <p>
+            Este quarto trabalho de casa teve como objetivo criar um servidor em <i>NodeJS</i> com <i>ExpressJS</i>, 
+            que permita representar a informação sobre um arquivo musical 
+            armazenada numa base de dados em <b>GraphDB</b>.
+        </p>
+        <p>
+            Sendo assim foram criadas duas rotas apenas, que fornecem as informações que são necessárias às 
+            duas páginas <i>html</i> do servidor. A página de índice exibe a listagem das obras, onde existe 
+            uma hiperligação para a página individual de cada obra, que contém as suas respetivas informações.
+            Este servidor utiliza <b>Pug</b> como gerador das páginas <i>html</i>.
+        </p>
+        <p>
+            Foram utilizadas três <i>queries</i> em <b>SPARQL</b> que são utilizadas nas rotas do servidor para, 
+            listar todas as obras, obter a informação de cada obra, e por último para obter a lista das partituras de cada obra. 
+        </p>
+    </abstract>
+    <deliverables>
+        <deliverable path="pr.xml">Project Record XML</deliverable>
+        <deliverable path="pr.xsl">Project Record XSLT</deliverable>
+        <deliverable path="../arquivo/">Servidor do Arquivo Musical</deliverable>
+    </deliverables>
+</pr>
