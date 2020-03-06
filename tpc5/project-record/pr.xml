@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <keyname>PRC1920_TPC5</keyname>
+        <title>Dataset da DBpedia</title>
+        <subtitle>Relatório do TPC5</subtitle>
+        <bdate>2 de Março 2020</bdate>
+        <edate>9 de Março 2020</edate>
+        <supervisor>
+            <name>José Carlos Ramalho</name>
+            <email>jcr@di.uminho.pt</email>
+            <homepage>http://www.di.uminho.pt/~jcr</homepage>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <identifier>a76516</identifier>
+            <name>João António Cidade Vieira</name>
+            <email>a76516@alunos.uminho.pt</email>
+            <photo path="photo.jpg"/>
+        </member>
+    </workteam>
+    <abstract>
+        <p>
+            Este quinto trabalho de casa teve como objetivo apenas criar um <i>dataset</i>, construído com uma <i>query</i>
+            em <b>SPARQL</b>. Esta <i>query</i> recolhe campos, sobre nadadores armazenados na <xref url="https://wiki.dbpedia.org/">dbpedia.org</xref>,
+            tais como o nome, sexo e data de nascimento, tendo também como campos opcionais o local de nascimento, a data
+            da morte e o <i>abstract</i>. Estes dados são armazenados num ficheiro em formato <b>JSON</b>.
+        </p>
+    </abstract>
+    <deliverables>
+        <deliverable path="pr.xml">Project Record XML</deliverable>
+        <deliverable path="pr.xsl">Project Record XSLT</deliverable>
+        <deliverable path="../files/query.sparql">Query SPARQL</deliverable>
+        <deliverable path="../files/swimmers.json">Dataset Nadadores</deliverable>
+    </deliverables>
+</pr>
