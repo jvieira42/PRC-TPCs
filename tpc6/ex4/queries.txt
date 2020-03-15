@@ -1,0 +1,64 @@
+1.Obtem uma lista de todos os pokemons catalogadas com os seguintes atributos: número, nome em inglês e tipo;
+
+select distinct ?number ?name (group_concat(?type; separator=", ") as ?types) where {
+    ?poke a :Pokemon.
+    ?poke :Name ?name.
+    filter(lang(?name)="en").
+    ?poke :Number ?number.
+    ?poke :HasType ?t.
+    ?t :Name ?type.
+    filter(lang(?type)="en").
+} group by ?number ?name
+
+2.Quantos pokémons estão catalogadas na ontologia?
+
+select (count(distinct ?name) as ?count) where {
+    ?poke a :Pokemon.
+    ?poke :Name ?name.
+    filter(lang(?name)="en").
+}
+
+3.Quantas evoluções tem o pokémon com número 5?
+
+select (count(*) as ?evoCount) where {
+    {
+    ?poke a :Pokemon.
+    ?poke :Number 5.
+    ?poke :EvolvesFrom ?evo.
+    ?evo :EvolvesTo ?evolution.
+} union {
+  	?poke a :Pokemon.
+  	?poke :Number 5.
+    ?evo2 :EvolvesTo ?poke.
+    ?evolution2 :EvolvesFrom ?evo2.
+	}
+}
+
+4.Quais são os pokémons para os quais pode evoluir o pokémon de nome "Eevee"?
+
+select ?name where {
+    ?poke a :Pokemon.
+    ?poke :Name "Eevee"@en.
+    ?poke :EvolvesFrom ?evo.
+    ?evo :EvolvesTo ?evolution.
+    ?evolution :Name ?name.
+    filter(lang(?name)="en").
+}
+
+5.Quantos tipos diferentes de pokémons exitem na ontologia?
+
+select (count(distinct ?type) as ?types) where {
+    ?poke a :Pokemon.
+    ?poke :HasType ?t.
+    ?t :Name ?type.
+    filter(lang(?type)="en").
+}
+
+6.Quantos pokémons existem associados a cada tipo?
+
+select distinct ?type (count(?poke) as ?count) where {
+    ?poke a :Pokemon.
+    ?poke :HasType ?t.
+    ?t :Name ?type.
+    filter(lang(?type)="en").
+} group by ?type

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <keyname>PRC1920_TPC6</keyname>
+        <title>Ficha Web Semântica</title>
+        <subtitle>Relatório do TPC6</subtitle>
+        <bdate>9 de Março 2020</bdate>
+        <edate>16 de Março 2020</edate>
+        <supervisor>
+            <name>José Carlos Ramalho</name>
+            <email>jcr@di.uminho.pt</email>
+            <homepage>http://www.di.uminho.pt/~jcr</homepage>
+        </supervisor>
+    </meta>
+    <workteam>
+        <member>
+            <identifier>a76516</identifier>
+            <name>João António Cidade Vieira</name>
+            <email>a76516@alunos.uminho.pt</email>
+            <photo path="photo.jpg"/>
+        </member>
+    </workteam>
+    <abstract>
+        <p>
+            Este sexto trabalho de casa teve como objetivo a realização de uma ficha sobre Web Semântica e as tecnologias a ela
+            associadas. Nesta ficha foram propostos quatro exercícios.
+        </p>
+        <p>
+            No primeiro exercício, para realizar o grafo, importou-se a ontologia após corrigida no <b>GraphDB</b> 
+            e através da opção <i>"Visual Graph"</i> foi possível visualizar o grafo correspondente.
+        </p>
+        <p>
+            No segundo exercício, foi utilizado o programa <i>protégé</i> para criar uma ontologia para uma rede de supermercados.
+            Essa ontologia foi posteriormente carregada no <b>GraphDB</b> de modo a realizar as <i>queries</i> propostas sobre esta.
+        </p>
+        <p>
+            No terceiro exercício, apenas foi proposta a realização de 5 <i>queries</i> sobre a base de dados da <b>DBPedia</b>.
+        </p>
+        <p>
+            Por último, foi proposta a realização de 6 <i>queries</i> sobre uma ontologia de <i>pókemons</i>, sendo esta carregada
+            no <b>GraphDB</b> para fazer as <i>queries</i>.
+        </p>
+    </abstract>
+    <deliverables>
+        <deliverable path="pr.xml">Project Record XML</deliverable>
+        <deliverable path="pr.xsl">Project Record XSLT</deliverable>
+        <deliverable path="../ex1/">Exercício 1</deliverable>
+        <deliverable path="../ex2/">Exercício 2</deliverable>
+        <deliverable path="../ex3/">Exercício 3</deliverable>
+        <deliverable path="../ex4/">Exercício 4</deliverable>
+    </deliverables>
+</pr>

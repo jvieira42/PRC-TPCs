@@ -1,0 +1,27 @@
+1.Que lojas vendem o produto A?
+
+select ?nomesLoja where {
+    ?loja a :Loja.
+    ?prod :éVendidoPor ?loja.
+	?prod :codigo "p1".
+    ?loja :nome ?nomesLoja.
+} 
+
+2.Que produtos são comprados pelo cliente X?
+
+select (?prod as ?nomeProdutos) where {
+    ?prod a :Produto.
+    ?cliente :nome "João".
+    ?cliente :compra ?prod.
+} 
+
+3.Quem são os potenciais clientes da loja Y?
+
+select distinct ?nomeClientes where {
+    ?loja a :Loja.
+    ?loja :nome "Pingo Doce".
+    ?loja :vende ?prod.
+    ?prod :éCompradoPor ?cliente.
+    ?cliente :nome ?nomeClientes.
+}
+

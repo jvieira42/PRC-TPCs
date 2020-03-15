@@ -1,0 +1,45 @@
+1.Quantos países estão catalogados na DBpedia?
+
+select count(distinct ?p) where {
+    [] dbo:nationality ?p.
+    ?p a dbo:Country.
+    filter not exists { ?p dbo:dissolutionYear ?d }
+}
+
+2.Quantas pessoas têm como local de nascimento o país"Barbados"?
+
+select count(distinct ?person) where {
+?person dbo:birthPlace ?p.
+?p dbo:country ?country.
+?country foaf:name "Barbados"@en.
+}
+
+3.Quais os nomes das pessoas nascidas em Barbados e que são ou foram jogadoras de "Cricket"?
+
+select distinct ?pname where {
+    ?person dbo:birthPlace ?p.
+    ?p dbo:country ?country.
+    ?country foaf:name "Barbados"@en.
+    ?person foaf:name ?pname.
+    filter(lang(?pname)='en').
+    optional {
+        ?team a dbo:CricketTeam.
+        ?team dbo:playerInTeam ?person .
+    }
+}
+
+4.Quantos atores estão catalogados na DBPedia?
+
+select count(distinct ?name) where {
+?p a dbo:Actor.
+?p foaf:name ?name.
+filter(lang(?name)="en").
+}
+
+5.Em que filmes foi protagonista "Christopher Lambert"?
+
+select distinct ?filmes where {
+?p foaf:name "Christopher Lambert"@en.
+?f dbo:starring ?p.
+?f foaf:name ?filmes.
+}
