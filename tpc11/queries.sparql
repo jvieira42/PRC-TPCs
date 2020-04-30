@@ -1,0 +1,61 @@
+# TIOS
+select * where { 
+    {
+    	?p a :Person .
+        ?p :sex "M" .
+    	?p :hasSibling/:hasSon ?sobrinho .
+	} union {
+		?p :hasSibling/:hasDaughter ?sobrinho .
+    }
+}
+
+# TIAS
+select * where { 
+    {
+    	?p a :Person .
+        ?p :sex "F" .
+    	?p :hasSibling/:hasSon ?sobrinho .
+	} union {
+		?p :hasSibling/:hasDaughter ?sobrinho .
+    }
+}
+
+# PRIMOS
+select ?filho ?primo where {
+    ?p a :Person .
+    ?p :hasChild ?filho .
+    ?p :hasSibling/:hasChild ?primo .
+    filter(?filho != ?primo) .
+}
+
+# ANCESTRAIS
+select * where {
+    ?p a :Person .
+    ?p :hasParent+ ?ancestral .
+}
+
+# DESCENDENTES
+select * where {
+    ?p a :Person .
+    ?p :hasChild+ ?descendente .
+}
+
+# CUNHADOS
+select ?p ?cunhados2 ?p2 ?cunhados1 where {
+    ?p a :Person .
+    ?p :hasChild ?child .
+    ?child :hasParent ?p2 .
+    filter(?p != ?p2) .
+    ?p :hasSibling ?cunhados1 .
+    ?p2 :hasSibling ?cunhados2 .
+}
+
+# SOGROS
+select ?p ?pais2 ?p2 ?pais1 where {
+    ?p a :Person .
+    ?p :hasChild ?child .
+    ?child :hasParent ?p2 .
+    filter(?p != ?p2) . 
+    ?p :hasParent ?pais1 .
+    ?p2 :hasParent ?pais2 .
+}
